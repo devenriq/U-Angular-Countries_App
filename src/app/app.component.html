@@ -1,35 +1,13 @@
 <div class="grid grid-cols-3 mt-4 ml-4">
   <div class="col-span-1">
     <h2>Búsquedas</h2>
-    <hr />
-    <ol class="border border-black divide-y rounded">
-      <li
-        class="border-black my-3"
-        routerLink=""
-        [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive=" hover:bg-sky-700 hover:text-white hover:cursor-pointer"
-      >
-        Buscar País
-      </li>
-      <li
-        class="border-black my-3"
-        routerLink="region"
-        routerLinkActive=" hover:bg-sky-700 hover:text-white hover:cursor-pointer"
-      >
-        Buscar Región
-      </li>
-      <li
-        class="border-black my-3"
-        routerLink="capital"
-        routerLinkActive="hover:bg-sky-700 hover:text-white hover:cursor-pointer"
-      >
-        Buscar Capital
-      </li>
-    </ol>
+    <hr class="my-3 border-slate-400" />
+
+    <app-sidebar></app-sidebar>
   </div>
   <div class="col-span-2">
     <h2>Por Capital</h2>
-    <hr />
+    <hr class="my-3 border-slate-400" />
     <router-outlet></router-outlet>
   </div>
 </div>

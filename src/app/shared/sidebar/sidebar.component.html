@@ -1,1 +1,24 @@
-<p>sidebar works!</p>
+<ul class="border border-slate-400 divide-y rounded flex flex-col">
+  <li
+    class="border-slate-400 hover:cursor-pointer pb-1 pt-1 pl-1"
+    routerLink=""
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive=" bg-blue-600 text-white "
+  >
+    Buscar País
+  </li>
+  <li
+    class="border-slate-400 hover:cursor-pointer pt-1 pl-1"
+    routerLink="region"
+    routerLinkActive=" bg-blue-600 text-white "
+  >
+    Buscar Región
+  </li>
+  <li
+    class="border-slate-400 hover:cursor-pointer pb-1 pt-1 pl-1"
+    routerLink="capital"
+    routerLinkActive=" bg-blue-600 text-white "
+  >
+    Buscar Capital
+  </li>
+</ul>
