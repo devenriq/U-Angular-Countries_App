@@ -3,16 +3,10 @@
 
 <div>
   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-    <form action="" autocomplete="off" (ngSubmit)="buscar()">
-      <input
-        type="text"
-        name="termino"
-        id=""
-        placeholder="Buscar país..."
-        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        [(ngModel)]="termino"
-      />
-    </form>
+    <app-pais-input
+      (onEnter)="buscar($event)"
+      (onDebounce)="sugerencias($event)"
+    ></app-pais-input>
   </div>
 </div>
 
@@ -24,46 +18,11 @@
   No se encontró nada con el término {{ termino }}
 </div>
 
-<div class="py-2 inline-block min-w-full sm:px-6 lg:px-8" *ngIf="!thereIsError">
+<div
+  class="py-2 inline-block min-w-full sm:px-6 lg:px-8"
+  *ngIf="paises.length > 0"
+>
   <div class="overflow-hidden">
-    <table class="min-w-full text-center">
-      <thead class="border-b">
-        <tr>
-          <th></th>
-          <th class="text-sm font-medium text-gray-900 px-6 py-4">Bandera</th>
-          <th class="text-sm font-medium text-gray-900 px-6 py-4">Nombre</th>
-          <th class="text-sm font-medium text-gray-900 px-6 py-4">Población</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-b">
-          <td
-            class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
-          >
-            1
-          </td>
-          <td
-            class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
-          >
-            Bandera
-          </td>
-          <td
-            class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
-          >
-            Nombre
-          </td>
-          <td
-            class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
-          >
-            1223
-          </td>
-          <td
-            class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
-          >
-            <a href="/pais/id">Ver...</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
   </div>
 </div>
