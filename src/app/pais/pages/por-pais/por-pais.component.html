@@ -17,11 +17,14 @@
 </div>
 
 <hr />
-<div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3">
-  No se encontró nada con el término
+<div
+  class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3"
+  *ngIf="thereIsError"
+>
+  No se encontró nada con el término {{ termino }}
 </div>
 
-<div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+<div class="py-2 inline-block min-w-full sm:px-6 lg:px-8" *ngIf="!thereIsError">
   <div class="overflow-hidden">
     <table class="min-w-full text-center">
       <thead class="border-b">
