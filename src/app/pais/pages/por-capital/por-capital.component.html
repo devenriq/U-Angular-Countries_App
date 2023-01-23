@@ -1,1 +1,29 @@
-<p>por-capital works!</p>
+<h2>Por Capital</h2>
+<hr class="my-3 border-slate-400" />
+
+<div>
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <app-pais-input
+      (onEnter)="buscar($event)"
+      (onDebounce)="sugerencias($event)"
+      placeholder="Por capital"
+    ></app-pais-input>
+  </div>
+</div>
+
+<hr />
+<div
+  class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3"
+  *ngIf="thereIsError"
+>
+  No se encontró nada con el término {{ termino }}
+</div>
+
+<div
+  class="py-2 inline-block min-w-full sm:px-6 lg:px-8"
+  *ngIf="capitales.length > 0"
+>
+  <div class="overflow-hidden">
+    <app-pais-tabla [paises]="capitales"></app-pais-tabla>
+  </div>
+</div>
